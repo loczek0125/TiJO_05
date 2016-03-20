@@ -43,6 +43,7 @@ describe('app', function () {
             expect(carPortal.credentials).toEqual({});
         });
         it('should set username to maria and password to qwerty when login is call', function () {
+            console.log(carPortal.credentials);
             carPortal.login('maria', 'qwerty');
             expect(carPortal.credentials).toEqual({username: 'maria', password: 'qwerty'});
         });
