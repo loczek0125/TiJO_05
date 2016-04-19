@@ -35,11 +35,11 @@ describe('app', function () {
         describe('and.callThrough', function () {
             beforeAll(function () {
                 spyOn(app, 'isPalindrome').and.callThrough();
-                app.generateMessage('kok');
+                app.generateMessage('tat');
             });
             it('should call isPalindrome and vowelCount functions when generateMessage function is called', function () {
                 expect(app.isPalindrome).toHaveBeenCalled();
-                expect(app.isPalindrome).toHaveBeenCalledWith('stok');
+                expect(app.isPalindrome).toHaveBeenCalledWith('kajak');
             });
         });
 
@@ -49,7 +49,7 @@ describe('app', function () {
                 spyOn(app, 'isPalindrome').and.returnValue(true);
             });
             it('should call generateMessage and return value {2, true}', function () {
-                returns = app.generateMessage('zium');
+                returns = app.generateMessage('kok');
                 expect(returns).toEqual({vowel: 2, palindrome: true});
             });
             it('should call isPalindrome and vowelCount should return true and 2', function () {
@@ -65,7 +65,7 @@ describe('app', function () {
                 });
             });
             it('should call isPalindrome fake function', function () {
-                expect(app.isPalindrome('kok')).toEqual('FAKE isPalindrome FUNCTION');
+                expect(app.isPalindrome('ewrtf')).toEqual('FAKE isPalindrome FUNCTION');
             });
             it('should notice isPalindrome called second time when generateMessage called', function () {
                 expect(app.generateMessage('olo')).toEqual({vowel: 2, palindrome: 'FAKE isPalindrome FUNCTION'});
@@ -82,7 +82,7 @@ describe('app', function () {
                 expect(app.isPalindrome.calls.count()).toBe(1);
             });
             it('should notice isPalindrome called second time when generateMessage called', function () {
-                returns = app.generateMessage('zaraz');
+                returns = app.generateMessage('tut');
                 expect(app.isPalindrome.calls.count()).toBe(2);
             });
         });
@@ -117,11 +117,11 @@ describe('app', function () {
                 spyOn(app, 'vowelCount').and.returnValue(2);
             });
             it('should call generateMessage and return value {2, true}', function () {
-                returns = app.generateMessage('juz');
+                returns = app.generateMessage('olo');
                 expect(returns).toEqual({vowel: 2, palindrome: true});
             });
             it('should call vowelCount and should return 2', function () {
-                returns = app.vowelCount('juz');
+                returns = app.vowelCount('olo');
                 expect(returns).toEqual(2);
             });
         });
@@ -133,10 +133,10 @@ describe('app', function () {
                 });
             });
             it('should return vowelCount with 99999', function () {
-                expect(app.vowelCount('qaz')).toEqual(99999);
+                expect(app.vowelCount('ewrtf')).toEqual(99999);
             });
             it('should notice vowelCount called second time when generateMessage called', function () {
-                expect(app.generateMessage('olo')).toEqual({vowel: 99999, palindrome: true});
+                expect(app.generateMessage('ewrtf')).toEqual({vowel: 99999, palindrome: true});
             });
         });
 
@@ -146,15 +146,15 @@ describe('app', function () {
                 spyOn(app, 'vowelCount').and.callThrough();
             });
             it('should call vowelCount function', function () {
-                returns = app.vowelCount('olo');
+                returns = app.vowelCount('ewrtf');
                 expect(app.vowelCount.calls.count()).toBe(1);
             });
             it('should notice vowelCount called second time when generateMessage called', function () {
-                returns = app.generateMessage('zaraz');
+                returns = app.generateMessage('tut');
                 expect(app.vowelCount.calls.count()).toBe(2);
             });
             it('should notice vowelCount called third time when generateMessage is called second time', function () {
-                returns = app.generateMessage('zium');
+                returns = app.generateMessage('fghj');
                 expect(app.vowelCount.calls.count()).toBe(3);
             });
 
