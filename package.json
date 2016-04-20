@@ -2,7 +2,9 @@
   "name": "pure-javascript-scaffolding",
   "private": true,
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "lodash": "^4.11.1"
+  },
   "devDependencies": {
     "grunt": "0.4.5",
     "grunt-cli": "0.1.13",
@@ -16,7 +18,8 @@
     "karma-jasmine": "0.3.8",
     "karma-junit-reporter": "0.2.2",
     "karma-phantomjs-launcher": "0.1.4",
-    "karma-spec-reporter": "0.0.13"
+    "karma-spec-reporter": "0.0.13",
+    "lodash": "^4.11.1"
   },
   "scripts": {
     "test": "grunt verify --force"

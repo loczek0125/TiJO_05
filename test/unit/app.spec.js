@@ -5,17 +5,17 @@ describe('app', function () {
 
     describe('generateMessage', function () {
         it('should return vowels in non-palindrome word', function () {
-            expect(app.generateMessage('hejka')).toEqual({vowel: 3, palindrome: false});
-            expect(app.generateMessage('majowo')).toEqual({vowel: 4, palindrome: false});
+            expect(app.generateMessage('hejka')).toEqual({vowel: 2, palindrome: false});
+            expect(app.generateMessage('majowo')).toEqual({vowel:3, palindrome: false});
         });
         it('should count vowels in palindrome', function () {
             expect(app.generateMessage('olo')).toEqual({vowel: 2, palindrome: true});
-            expect(app.generateMessage('kok')).toEqual({vowel: 2, palindrome: true});
+            expect(app.generateMessage('kok')).toEqual({vowel: 1, palindrome: true});
             expect(app.generateMessage('bob')).toEqual({vowel: 1, palindrome: true});
         });
         it('should thrown an error message', function () {
             expect(function () {
-                app.generateMessage('')
+                app.generateMessage('');
             }).toThrowError('Empty string!');
         });
     });
@@ -39,7 +39,7 @@ describe('app', function () {
             });
             it('should call isPalindrome and vowelCount functions when generateMessage function is called', function () {
                 expect(app.isPalindrome).toHaveBeenCalled();
-                expect(app.isPalindrome).toHaveBeenCalledWith('kajak');
+                expect(app.isPalindrome).toHaveBeenCalledWith('tat');
             });
         });
 
@@ -50,7 +50,7 @@ describe('app', function () {
             });
             it('should call generateMessage and return value {2, true}', function () {
                 returns = app.generateMessage('kok');
-                expect(returns).toEqual({vowel: 2, palindrome: true});
+                expect(returns).toEqual({vowel: 1, palindrome: true});
             });
             it('should call isPalindrome and vowelCount should return true and 2', function () {
                 returns = app.isPalindrome('olo');
@@ -61,7 +61,7 @@ describe('app', function () {
         describe('and.callFake', function () {
             beforeAll(function () {
                 spyOn(app, 'isPalindrome').and.callFake(function () {
-                    return 'FAKE isPalindrome FUNCTION'
+                    return 'FAKE isPalindrome FUNCTION';
                 });
             });
             it('should call isPalindrome fake function', function () {
@@ -136,7 +136,7 @@ describe('app', function () {
                 expect(app.vowelCount('ewrtf')).toEqual(99999);
             });
             it('should notice vowelCount called second time when generateMessage called', function () {
-                expect(app.generateMessage('ewrtf')).toEqual({vowel: 99999, palindrome: true});
+                expect(app.generateMessage('asdsa')).toEqual({vowel: 99999, palindrome: true});
             });
         });
 
